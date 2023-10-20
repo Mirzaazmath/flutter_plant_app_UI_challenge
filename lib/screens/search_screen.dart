@@ -41,6 +41,7 @@ class SearchScreen extends StatelessWidget {
 
                     child: TextFormField(
                       decoration:   InputDecoration(
+                        hintText: "plants",
                           prefixIcon:Container(
                             margin: const EdgeInsets.only(top: 10),
                             padding: const EdgeInsets.only(bottom: 10),

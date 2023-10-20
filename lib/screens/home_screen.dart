@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_app_ui/screens/search_screen.dart';
+import 'package:plant_app_ui/utils/show_up_animation.dart';
 import 'package:plant_app_ui/utils/text_util.dart';
 import '../components/category_component.dart';
 import '../utils/animated_route.dart';
@@ -39,47 +40,52 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
 
-                Stack(
-                  children: [
-                    SizedBox(
-                      height: 130,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            height: 90,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Theme.of(context).primaryColor
+                ShowUpAnimation(
+                  delay: 100,
+                  child: Stack(
+                    children: [
+                      SizedBox(
+                        height: 130,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              height: 90,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Theme.of(context).primaryColor
+                              ),
+                              child: Row(
+                                children: [
+                                  Expanded(child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      TextUtil(text: "30% OFF",weight: true,color: Colors.white,),
+                                    const   SizedBox(height: 10,),
+                                      TextUtil(text: "03-21 Nov",color: Colors.white,)
+                                    ],
+                                  )),
+                                  Expanded(child: SizedBox())
+                                ],
+                              ),
                             ),
-                            child: Row(
-                              children: [
-                                Expanded(child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    TextUtil(text: "30% OFF",weight: true,color: Colors.white,),
-                                  const   SizedBox(height: 10,),
-                                    TextUtil(text: "03-21 Nov",color: Colors.white,)
-                                  ],
-                                )),
-                                Expanded(child: SizedBox())
-                              ],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      right: 0,
-                      child: SizedBox(
-                        height: 120,
+                      Positioned(
+                        right: 0,
+                        child: SizedBox(
+                          height: 120,
 
-                        child: Image.asset("assets/plant2.png")),),
-                  ],
+                          child: Image.asset("assets/plant2.png")),),
+                    ],
+                  ),
                 ),
                const  SizedBox(height: 20,),
-                CategoryWidget(),
+                ShowUpAnimation(
+                  delay: 300,
+                    child: CategoryWidget()),
               ],
             ),
           ),
