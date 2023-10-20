@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../utils/text_util.dart';
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key});
+  int index;
+   DetailScreen({super.key,required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +25,13 @@ class DetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 250,
-                  alignment: Alignment.center,
-                  child: Image.asset("assets/plant2.png"),
+                Hero(
+                  tag:index,
+                  child: Container(
+                    height: 250,
+                    alignment: Alignment.center,
+                    child: Image.asset("assets/plant1.png"),
+                  ),
                 ),
                 const SizedBox(height: 20,),
                 TextUtil(text: "NameOfThePlant",size: 25,weight: true,),

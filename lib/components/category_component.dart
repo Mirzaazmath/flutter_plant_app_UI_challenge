@@ -57,7 +57,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
           children: <Widget>[
 
          for(int i=0;i<10;i++)...[
-           PlantCard(isHomeScreen: true,)
+           PlantCard(isHomeScreen: true,index:i)
          ]
 
           ],

@@ -86,7 +86,7 @@ class SearchScreen extends StatelessWidget {
                   TextUtil(text: "Found\n10 Result",size: 30,weight: true,),
                   const SizedBox(height: 20,),
                   for(int i=0;i<5;i++)...[
-                    PlantCard(isHomeScreen: false,)
+                    PlantCard(isHomeScreen: false,index: i,)
                   ]
                 ],
               )),
@@ -97,7 +97,7 @@ class SearchScreen extends StatelessWidget {
                 children: [
 
                   for(int i=0;i<5;i++)...[
-                    PlantCard(isHomeScreen: false,)
+                    PlantCard(isHomeScreen: false,index: 1,)
                   ]
                 ],
               )),

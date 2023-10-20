@@ -5,13 +5,14 @@ import '../utils/text_util.dart';
 import 'heart_widget.dart';
 class PlantCard extends StatelessWidget {
   bool isHomeScreen;
-   PlantCard({super.key,required this.isHomeScreen});
+  int index;
+   PlantCard({super.key,required this.isHomeScreen, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailScreen()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailScreen(index:index,)));
       },
       child: Container(
           height: 300,
@@ -23,9 +24,12 @@ class PlantCard extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(
-                height: 180,
-                child: Image.asset("assets/plant1.png"),
+              Hero(
+                tag: index,
+                child: SizedBox(
+                  height: 180,
+                  child: Image.asset("assets/plant1.png"),
+                ),
               ),
               TextUtil(text: "NameOfThePlant",size: 16),
               const   Spacer(),
